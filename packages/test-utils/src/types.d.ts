@@ -1,4 +1,4 @@
-export type AttributeObject = Object<string, number | string>;
+export type AttributeObject = Object<string, string>;
 
 type DOMTokenListOrBoolean<T> = T extends string ? boolean | null : Array<string>;
 type NamedNodeMapOrString<T> = T extends string ? string | null | never : Object;
@@ -14,6 +14,7 @@ export interface Wrapper {
     attributes(attributeName?: T): NamedNodeMapOrString<T>;
     classes(className?: T): DOMTokenListOrBoolean<T>;
     exists(): boolean;
+    shadowHtml(): shadowRoot | never;
     trigger(type: string, payload?: any): void;
     setAttribute(name: string, value?: any): void;
 }

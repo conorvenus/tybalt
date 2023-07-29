@@ -3,6 +3,7 @@ import type { Observer } from 'rxjs';
 export type PropType = String | Number | Object | Array<any>;
 
 export type PropDefinition = {
+    parser?: { parse(str: string | null): any };
     default?: any;
     validator?: Function;
 };
@@ -13,7 +14,7 @@ export type PropsDefinitionMap = {
 
 export type RenderContext = {};
 
-export type PropsStateMap = {};
+export type PropsStateMap = { observable: BehaviorSubject; parse(str: string | null): any };
 
 export type DefineComponentsOptions = {
     name: string;
